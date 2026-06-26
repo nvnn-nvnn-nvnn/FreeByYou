@@ -36,6 +36,7 @@ export type CategoryId = (typeof CATEGORIES)[number]['id'];
 /** Genres an individual item can be tagged with (everything except the generic view). */
 export type ItemCategoryId = Exclude<CategoryId, 'explore'>;
 
+
 export type Listing = {
   id: string;
   title: string;
@@ -43,9 +44,15 @@ export type Listing = {
   category: ItemCategoryId;
   neighborhood: string;
   distanceMi: number;
-  postedAt: string; // ISO timestamp
-  /** Placeholder thumbnail tint (keyed off the genre) until real images exist. */
-  thumbnailColor: string;
+  postedAt: string;
+  thumbnailColor: string; // Keep for fallback
+  /** Real scraped fields */
+  imageUrl?: string;
+  listingUrl?: string;
+  sellerName?: string;
+  price: string; // "Free" or "$0"
+  city: string;
+  state: string;
 };
 
 /** A single page of results plus a cursor to the next page (null = end). */

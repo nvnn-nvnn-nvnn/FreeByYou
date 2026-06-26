@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { router, useRouter } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
@@ -14,7 +14,7 @@ const SECTIONS: { title: string; items: { label: string; icon: keyof typeof Ioni
     items: [
       { label: 'Profile', icon: 'person-outline' },
       { label: 'Saved listings', icon: 'bookmark-outline' },
-      { label: 'Location', icon: 'location-outline' },
+      { label: 'Location', icon: 'location-outline', action: () => router.push('/location') }
     ],
   },
   {
